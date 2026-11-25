@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>调度规则配置</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+.wrow{display:grid;grid-template-columns:1fr 120px 88px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #EEF1F5}
+.wrow .nm{font-size:14px}
+.wrow .nm span{display:block;font-size:12px;color:var(--text3);margin-top:2px}
+.wrow input[type=number]{height:34px;width:100%;border:1px solid #D6DDE6;border-radius:6px;padding:0 10px;font-family:inherit;font-size:14px;text-align:right}
+.bar{height:8px;background:#EEF1F5;border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:#2F6B8A}
+.total{display:flex;align-items:center;gap:12px;padding:14px 0 0;font-size:14px}
+.total b{font-size:20px}
+</style></head><body>
+<div data-nav="rule" data-title="分析与配置 / 调度规则配置" data-user="周建明" data-role="运营管理员"></div>
+<div id="page">
+  <div class="grid2" style="grid-template-columns:1.35fr 1fr;align-items:start">
+    <div class="card">
+      <div class="card-h"><h2>权重配置 · 规则 v3</h2><span class="tag t-ok" style="margin-left:auto">启用中</span></div>
+      <div class="card-b">
+        <div class="hint" style="margin-bottom:6px">权重合计必须等于 100%，保存后生成新版本并记录生效时间，历史计算仍引用原版本。</div>
+        <div class="wrow"><div class="nm">满载度<span>点位当前满载率，越高越紧急</span></div><input type="number" value="26"><div class="bar"><i style="width:26%"></i></div></div>
+        <div class="wrow"><div class="nm">滞留时长<span>距上次清运小时数</span></div><input type="number" value="24"><div class="bar"><i style="width:24%"></i></div></div>
+        <div class="wrow"><div class="nm">投诉次数<span>近 30 天该点位投诉量</span></div><input type="number" value="16"><div class="bar"><i style="width:16%"></i></div></div>
+        <div class="wrow"><div class="nm">车辆剩余容量<span>可用载重与预估重量之差</span></div><input type="number" value="18"><div class="bar"><i style="width:18%"></i></div></div>
+        <div class="wrow"><div class="nm">点位距离<span>预置坐标直线距离</span></div><input type="number" value="10"><div class="bar"><i style="width:10%"></i></div></div>
+        <div class="wrow" style="border:none"><div class="nm">垃圾类型匹配<span>车辆类型与垃圾类型一致性</span></div><input type="number" value="6"><div class="bar"><i style="width:6%"></i></div></div>
+        <div class="total"><span style="color:var(--text2)">合计</span><b class="num" style="color:#2E7D5B">100%</b><span class="muted">校验通过</span>
+          <div style="margin-left:auto;display:flex;gap:8px"><button class="btn btn-s">恢复默认</button><button class="btn btn-p">保存并生效</button></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>结果等级阈值</h2></div>
+        <div class="card-b">
+          <dl class="dl" style="grid-template-columns:110px 1fr">
+            <dt>P1 立即派车</dt><dd class="num">≥ 85 分</dd>
+            <dt>P2 建议派车</dt><dd class="num">65 – 84 分</dd>
+            <dt>P3 可延后</dt><dd class="num">45 – 64 分</dd>
+            <dt>不推荐</dt><dd class="num">&lt; 45 分</dd>
+            <dt>净重复核阈值</dt><dd class="num">5%</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>版本记录</h2></div>
+        <div class="card-b">
+          <div class="timeline">
+            <div class="tl ok"><div class="h">v3 生效</div><div class="m">2026-10-20 09:00 · 周建明<br>提高满载度权重 22%→26%</div></div>
+            <div class="tl"><div class="h">v2 生效</div><div class="m">2026-09-01 10:20 · 周建明<br>新增垃圾类型匹配 6%</div></div>
+            <div class="tl"><div class="h">v1 初始版本</div><div class="m">2026-06-15 14:00 · 系统初始化</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>效果统计（近 30 天）</h2></div>
+        <div class="card-b">
+          <div class="hbar"><span class="nm">推荐采纳率</span><span class="tr"><i style="width:78%;background:#2E7D5B"></i></span><span class="vl num">78.4%</span></div>
+          <div class="hbar"><span class="nm">人工调整率</span><span class="tr"><i style="width:22%;background:#B26B00"></i></span><span class="vl num">21.6%</span></div>
+          <div class="hbar" style="margin:0"><span class="nm">超时率变化</span><span class="tr"><i style="width:12%;background:#2F6B8A"></i></span><span class="vl num">-3.1pt</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/nav.js"></script>
+</body></html>

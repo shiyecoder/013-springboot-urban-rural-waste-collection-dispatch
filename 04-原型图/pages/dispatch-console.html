@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>清运调度台</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:0;padding:0 20px}
+.tabs a{padding:12px 14px;font-size:14px;color:var(--text2);border-bottom:2px solid transparent}
+.tabs a.on{color:var(--primary);border-bottom-color:var(--primary);font-weight:500}
+.tabs a b{display:inline-block;background:#EEF1F5;color:var(--text2);font-size:11px;padding:0 6px;border-radius:8px;margin-left:6px;font-weight:400}
+.tabs a.on b{background:#1F2937;color:#fff}
+.split{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+.pick{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2)}
+.tl2{border-left:2px solid var(--border);padding-left:14px;margin-left:4px}
+.tl2 .it{position:relative;padding-bottom:14px}
+.tl2 .it::before{content:"";position:absolute;left:-21px;top:5px;width:8px;height:8px;border-radius:50%;background:#2F6B8A;border:2px solid #fff;box-shadow:0 0 0 2px #2F6B8A}
+.tl2 .it span{display:block;font-size:12px;color:var(--text3)}
+.checkbox{width:15px;height:15px}
+.batchbar{display:flex;align-items:center;gap:12px;background:#EAF2F6;border:1px solid #C9DDE7;border-radius:6px;padding:8px 14px;margin-bottom:12px;font-size:13px}
+</style></head><body>
+<div data-nav="dispatch" data-title="调度台账 / 清运调度台" data-user="李振华" data-role="调度员"></div>
+<div id="page">
+  <div class="card" style="margin-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0">
+    <div class="tabs">
+      <a class="on" href="#">待派车<b>12</b></a><a href="#">已接单<b>8</b></a><a href="#">清运中<b>6</b></a><a href="#">待确认<b>4</b></a><a href="#">已完成</a><a href="#">异常<b style="background:#FBEDEC;color:#B3261E">3</b></a>
+    </div>
+    <div class="card-b" style="padding:14px 20px">
+      <div class="filter">
+        <div class="fld"><label>任务编号</label><input placeholder="QD2026103..."></div>
+        <div class="fld"><label>计划时间</label><input type="date" value="2026-10-31"></div>
+        <div class="fld"><label>所属线路</label><select><option>全部线路</option><option selected>R-02 城南环线</option></select></div>
+        <div class="fld"><label>车辆</label><select><option>全部车辆</option><option>粤A·D8821</option></select></div>
+        <div style="display:flex;gap:8px"><button class="btn btn-a btn-sm"><svg><use href="../icons.svg#i-search"/></svg>查询</button><button class="btn btn-s btn-sm">重置</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="card" style="border-top:none;border-top-left-radius:0;border-top-right-radius:0">
+      <div class="card-b" style="padding:14px 20px 0">
+        <div class="batchbar"><input type="checkbox" class="checkbox">已选 2 条<button class="btn btn-a btn-sm">批量派车</button><button class="btn btn-s btn-sm">合并任务</button><span class="muted" style="margin-left:auto">按「调度优先级」倒序</span></div>
+      </div>
+      <table>
+        <thead><tr><th style="width:36px"></th><th class="nowrap">任务编号</th><th>收集点 / 线路</th><th>垃圾类型</th><th class="r">预估重量</th><th>优先级</th><th class="nowrap">计划时间</th><th class="nowrap">状态</th><th class="nowrap">操作</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" class="checkbox" checked></td><td class="nowrap num">QD20261031-0012</td><td><div class="pname">城南农贸市场东门站<span>R-02 城南环线 · 城南街道</span></div></td><td>生活垃圾</td><td class="r num">7.2 吨</td><td><span class="tag t-err">P1 · 92.4</span></td><td class="nowrap num">2026-10-31 08:00</td><td><span class="tag t-wait">待派车</span></td><td class="ops"><a href="#">派车</a><a href="weighing-detail.html">详情</a></td></tr>
+          <tr><td><input type="checkbox" class="checkbox" checked></td><td class="nowrap num">QD20261031-0013</td><td><div class="pname">锦绣花园小区北门站<span>R-02 城南环线 · 城南街道</span></div></td><td>生活垃圾</td><td class="r num">5.4 吨</td><td><span class="tag t-wait">P2 · 78.1</span></td><td class="nowrap num">2026-10-31 08:40</td><td><span class="tag t-wait">待派车</span></td><td class="ops"><a href="#">派车</a><a href="#">详情</a></td></tr>
+          <tr><td><input type="checkbox" class="checkbox"></td><td class="nowrap num">QD20261031-0014</td><td><div class="pname">高新科技园 B 区站<span>R-05 高新线 · 高新片区</span></div></td><td>餐厨垃圾</td><td class="r num">4.6 吨</td><td><span class="tag t-wait">P2 · 74.6</span></td><td class="nowrap num">2026-10-31 09:20</td><td><span class="tag t-wait">待派车</span></td><td class="ops"><a href="#">派车</a><a href="#">详情</a></td></tr>
+          <tr><td><input type="checkbox" class="checkbox"></td><td class="nowrap num">QD20261031-0011</td><td><div class="pname">滨江路建材市场站<span>R-04 滨江线 · 滨江片区</span></div></td><td>建筑垃圾</td><td class="r num">9.8 吨</td><td><span class="tag t-run">P3 · 61.2</span></td><td class="nowrap num">2026-10-31 10:30</td><td><span class="tag t-run">已接单</span></td><td class="ops"><a href="#">改派</a><a href="#">详情</a></td></tr>
+          <tr><td><input type="checkbox" class="checkbox"></td><td class="nowrap num">QD20261031-0010</td><td><div class="pname">第三小学后街站<span>R-01 老城线 · 老城街道</span></div></td><td>生活垃圾</td><td class="r num">3.2 吨</td><td><span class="tag t-run">P3 · 55.8</span></td><td class="nowrap num">2026-10-31 07:30</td><td><span class="tag t-run">清运中</span></td><td class="ops"><a href="#">跟踪</a><a href="#">详情</a></td></tr>
+          <tr><td><input type="checkbox" class="checkbox"></td><td class="nowrap num">QD20261030-0087</td><td><div class="pname">滨江花园西区站<span>R-04 滨江线 · 滨江片区</span></div></td><td>生活垃圾</td><td class="r num">6.1 吨</td><td><span class="tag t-run">P3 · 52.0</span></td><td class="nowrap num">2026-10-30 16:00</td><td><span class="tag t-run">待确认</span></td><td class="ops"><a href="#">确认</a><a href="#">详情</a></td></tr>
+          <tr><td><input type="checkbox" class="checkbox"></td><td class="nowrap num">QD20261030-0086</td><td><div class="pname">老城文化广场站<span>R-01 老城线 · 老城街道</span></div></td><td>园林绿化</td><td class="r num">2.4 吨</td><td><span class="tag t-err">异常</span></td><td class="nowrap num">2026-10-30 14:10</td><td><span class="tag t-err">异常待处理</span></td><td class="ops"><a href="#">处理</a><a href="#">详情</a></td></tr>
+        </tbody>
+      </table>
+      <div class="pager"><span>共 33 条 · 第 1 / 4 页</span><div class="pages"><a>‹</a><b>1</b><a>2</a><a>3</a><a>4</a><a>›</a></div></div>
+    </div>
+
+    <div class="card" style="position:sticky;top:16px">
+      <div class="card-h"><h2>推荐派车 · QD20261031-0012</h2></div>
+      <div class="card-b">
+        <div class="hint" style="margin-bottom:14px">依「容量与时效联合调度」规则 v3 计算，权重合计 100%</div>
+        <dl class="dl" style="grid-template-columns:96px 1fr;font-size:13px">
+          <dt>满载度</dt><dd class="num">92% · 得分 24.0</dd>
+          <dt>滞留时长</dt><dd class="num">58 小时 · 得分 21.6</dd>
+          <dt>投诉次数</dt><dd class="num">3 次 · 得分 15.0</dd>
+          <dt>车辆容量</dt><dd class="num">8 吨车余 6.8 吨 · 18.0</dd>
+          <dt>点位距离</dt><dd class="num">4.2 km · 9.4</dd>
+          <dt>类型匹配</dt><dd class="num">完全匹配 · 4.4</dd>
+        </dl>
+        <div style="display:flex;align-items:center;gap:10px;margin:16px 0 10px;padding-top:14px;border-top:1px solid var(--border)">
+          <span style="font-size:13px;color:var(--text2)">综合得分</span>
+          <b class="num" style="font-size:24px">92.4</b>
+          <span class="tag t-err" style="margin-left:auto">P1 立即派车</span>
+        </div>
+        <div style="font-size:13px;color:var(--text2);line-height:22px">
+          主要影响因素：满载度 92%（超阈值 85%）、滞留 58 小时。<br>
+          未满足条件：粤A·D8821 司机 09:00 有重叠任务。
+        </div>
+        <div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-p btn-sm" style="flex:1;justify-content:center">按推荐派车</button><button class="btn btn-s btn-sm" style="flex:1;justify-content:center">人工调整</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/nav.js"></script>
+</body></html>

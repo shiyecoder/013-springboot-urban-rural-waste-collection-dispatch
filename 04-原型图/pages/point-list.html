@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>收集点管理</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:8px;background:#fff;margin-bottom:16px}
+.sum div{padding:14px 20px;border-right:1px solid var(--border)}
+.sum div:last-child{border:none}
+.sum .k{font-size:12px;color:var(--text2)}
+.sum .v{font-size:20px;font-weight:600;margin-top:2px}
+.thumb{width:64px;height:48px;border-radius:4px;object-fit:cover;border:1px solid var(--border);background:#EEF1F5}
+.pname{font-weight:500}
+.pname span{display:block;font-size:12px;color:var(--text3);font-weight:400}
+.load{display:flex;align-items:center;gap:8px}
+.load .tr{width:64px;height:6px;background:#EEF1F5;border-radius:3px;overflow:hidden}
+.load .tr i{display:block;height:100%}
+.ops a{margin-right:12px;font-size:13px}
+.ops a.del{color:var(--danger)}
+</style></head><body>
+<div data-nav="point" data-title="基础档案 / 收集点管理" data-user="周建明" data-role="运营管理员"></div>
+<div id="page">
+  <div class="card">
+    <div class="card-b">
+      <div class="filter">
+        <div class="fld"><label>点位编码 / 名称</label><input placeholder="输入编码或名称"></div>
+        <div class="fld"><label>所属区域</label><select><option>全部区域</option><option selected>城南街道</option><option>高新片区</option><option>老城街道</option></select></div>
+        <div class="fld"><label>垃圾类型</label><select><option>全部类型</option><option selected>生活垃圾</option><option>建筑垃圾</option><option>大件垃圾</option></select></div>
+        <div class="fld"><label>满载度</label><select><option>全部</option><option>0-50%</option><option selected>50-80%</option><option>80% 以上</option></select></div>
+        <div class="fld"><label>最后清运</label><input type="date" value="2026-10-01"></div>
+        <div class="fld"><label>点位状态</label><select><option>全部状态</option><option selected>正常</option><option>满溢</option><option>停用</option></select></div>
+        <div style="display:flex;gap:8px"><button class="btn btn-a"><svg><use href="../icons.svg#i-search"/></svg>查询</button><button class="btn btn-s">重置</button></div>
+        <button class="btn btn-s" style="margin-left:auto">高级筛选</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sum">
+    <div><div class="k">在管点位</div><div class="v num">128</div></div>
+    <div><div class="k">当前满溢</div><div class="v num" style="color:#B26B00">6</div></div>
+    <div><div class="k">今日已清运</div><div class="v num" style="color:#2E7D5B">43</div></div>
+    <div><div class="k">超 72 小时未清运</div><div class="v num" style="color:#B3261E">4</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>收集点列表</h2>
+      <div class="acts"><button class="btn btn-s btn-sm"><svg><use href="../icons.svg#i-export"/></svg>导出筛选结果</button><button class="btn btn-p btn-sm"><svg><use href="../icons.svg#i-plus"/></svg>新建收集点</button></div>
+    </div>
+    <table>
+      <thead><tr><th class="nowrap">点位编码</th><th>点位名称</th><th>所属区域</th><th>垃圾类型</th><th class="r">容量(吨)</th><th>满载度</th><th class="nowrap">最后清运时间</th><th>责任单位</th><th class="nowrap">状态</th><th class="nowrap">操作</th></tr></thead>
+      <tbody>
+        <tr><td class="nowrap num">CP-2026-0031</td><td><div class="pname">城南农贸市场东门站<span>负责人 李国庆 · 138****2210</span></div></td><td>城南街道</td><td>生活垃圾</td><td class="r num">8.0</td><td><div class="load"><span class="tr"><i style="width:92%;background:#B3261E"></i></span><span class="num">92%</span></div></td><td class="nowrap num">2026-10-29 06:40:12</td><td>城南环卫所</td><td><span class="tag t-err">满溢</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0032</td><td><div class="pname">锦绣花园小区北门站<span>负责人 王秀兰 · 139****6602</span></div></td><td>城南街道</td><td>生活垃圾</td><td class="r num">6.0</td><td><div class="load"><span class="tr"><i style="width:78%;background:#B26B00"></i></span><span class="num">78%</span></div></td><td class="nowrap num">2026-10-30 07:12:30</td><td>锦绣物业</td><td><span class="tag t-wait">待清运</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0033</td><td><div class="pname">第三小学后街站<span>负责人 张德海 · 137****8891</span></div></td><td>老城街道</td><td>生活垃圾</td><td class="r num">4.0</td><td><div class="load"><span class="tr"><i style="width:41%;background:#2E7D5B"></i></span><span class="num">41%</span></div></td><td class="nowrap num">2026-10-31 05:58:44</td><td>老城环卫所</td><td><span class="tag t-ok">正常</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0034</td><td><div class="pname">滨江路建材市场站<span>负责人 陈志远 · 136****3345</span></div></td><td>滨江片区</td><td>建筑垃圾</td><td class="r num">12.0</td><td><div class="load"><span class="tr"><i style="width:65%;background:#2F6B8A"></i></span><span class="num">65%</span></div></td><td class="nowrap num">2026-10-28 14:20:08</td><td>滨江市容</td><td><span class="tag t-ok">正常</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0035</td><td><div class="pname">高新科技园 B 区站<span>负责人 刘敏 · 135****7723</span></div></td><td>高新片区</td><td>餐厨垃圾</td><td class="r num">5.0</td><td><div class="load"><span class="tr"><i style="width:88%;background:#B26B00"></i></span><span class="num">88%</span></div></td><td class="nowrap num">2026-10-30 18:05:51</td><td>园区服务中心</td><td><span class="tag t-wait">待清运</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0036</td><td><div class="pname">城北乡镇卫生院站<span>负责人 赵国强 · 133****1180</span></div></td><td>城北乡镇</td><td>生活垃圾</td><td class="r num">3.0</td><td><div class="load"><span class="tr"><i style="width:22%;background:#2E7D5B"></i></span><span class="num">22%</span></div></td><td class="nowrap num">2026-10-31 06:30:19</td><td>城北环卫站</td><td><span class="tag t-ok">正常</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0037</td><td><div class="pname">老城文化广场站<span>负责人 孙丽华 · 138****5567</span></div></td><td>老城街道</td><td>园林绿化</td><td class="r num">6.0</td><td><div class="load"><span class="tr"><i style="width:55%;background:#2F6B8A"></i></span><span class="num">55%</span></div></td><td class="nowrap num">2026-10-27 09:44:02</td><td>老城环卫所</td><td><span class="tag t-off">停用</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+        <tr><td class="nowrap num">CP-2026-0038</td><td><div class="pname">滨江花园西区站<span>负责人 郑海涛 · 139****9902</span></div></td><td>滨江片区</td><td>生活垃圾</td><td class="r num">8.0</td><td><div class="load"><span class="tr"><i style="width:71%;background:#2F6B8A"></i></span><span class="num">71%</span></div></td><td class="nowrap num">2026-10-30 21:18:37</td><td>滨江物业</td><td><span class="tag t-ok">正常</span></td><td class="ops"><a href="#">查看</a><a href="#">报量</a><a href="#">派车</a></td></tr>
+      </tbody>
+    </table>
+    <div class="pager"><span>共 128 条 · 第 1 / 13 页</span>
+      <div class="pages"><a>‹</a><b>1</b><a>2</a><a>3</a><a>4</a><a>…</a><a>13</a><a>›</a>
+        <select style="height:32px;margin-left:10px;border:1px solid var(--border);border-radius:6px;padding:0 6px"><option>每页 10 条</option><option>每页 20 条</option><option>每页 50 条</option></select></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/nav.js"></script>
+</body></html>

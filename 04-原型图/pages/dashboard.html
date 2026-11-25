@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>环卫运营看板</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+body{overflow:hidden}
+.content{padding:16px 24px}
+.kpis{grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:12px}
+.kpi{padding:12px 16px}
+.kpi .v{font-size:24px;line-height:30px;margin-top:2px}
+.charts{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:206px 206px;gap:12px}
+.charts .card{margin:0;display:flex;flex-direction:column}
+.charts .card-b{padding:12px 16px;flex:1;overflow:hidden}
+.charts .card-h{height:40px;font-size:14px}
+.charts .card-h h2{font-size:14px}
+.lc{width:100%;height:140px}
+.donut{display:flex;align-items:center;gap:14px}
+.donut .ring{width:112px;height:112px;border-radius:50%;background:conic-gradient(#2E7D5B 0 62%,#2F6B8A 62% 78%,#B26B00 78% 90%,#B3261E 90% 96%,#7E8B9B 96% 100%);position:relative;flex:0 0 112px}
+.donut .ring::after{content:"";position:absolute;inset:26px;background:#fff;border-radius:50%}
+.lg{font-size:12px;color:var(--text2);line-height:20px}
+.lg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+</style></head><body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><svg><use href="../icons.svg#i-truck"/></svg>环卫清运调度</div>
+    <nav class="menu">
+      <div class="grp">运营总览</div>
+      <a class="on" href="dashboard.html"><svg><use href="../icons.svg#i-dashboard"/></svg>环卫运营看板</a>
+      <div class="grp">基础档案</div>
+      <a href="point-list.html"><svg><use href="../icons.svg#i-point"/></svg>收集点管理</a>
+      <a href="#"><svg><use href="../icons.svg#i-truck"/></svg>车辆档案</a>
+      <a href="#"><svg><use href="../icons.svg#i-driver"/></svg>司机档案</a>
+      <a href="#"><svg><use href="../icons.svg#i-route"/></svg>线路与处置场</a>
+      <div class="grp">调度台账</div>
+      <a href="dispatch-console.html"><svg><use href="../icons.svg#i-dispatch"/></svg>清运调度台</a>
+      <a href="overflow-report.html"><svg><use href="../icons.svg#i-overflow"/></svg>临时报满</a>
+      <a href="weighing-detail.html"><svg><use href="../icons.svg#i-weigh"/></svg>称重交接</a>
+      <a href="#"><svg><use href="../icons.svg#i-alert"/></svg>异常处理</a>
+      <div class="grp">分析与配置</div>
+      <a href="rule-config.html"><svg><use href="../icons.svg#i-rule"/></svg>调度规则配置</a>
+      <a href="#"><svg><use href="../icons.svg#i-report"/></svg>统计报表</a>
+      <div class="grp">系统管理</div>
+      <a href="#"><svg><use href="../icons.svg#i-user"/></svg>用户管理</a>
+      <a href="#"><svg><use href="../icons.svg#i-role"/></svg>角色管理</a>
+    </nav>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <div class="crumb">运营总览 / <b>环卫运营看板</b></div>
+      <div class="right">
+        <span class="muted">2026-10-31</span>
+        <div class="bell"><svg width="18" height="18" fill="#5B6675"><use href="../icons.svg#i-bell"/></svg><span class="dot">7</span></div>
+        <img class="avatar" src="../assets/avatar.png" alt="">
+        <div class="who"><b>周建明</b>运营管理员</div>
+      </div>
+    </header>
+    <div class="content">
+      <div class="kpis">
+        <div class="kpi"><div class="k">近 30 天清运量</div><div class="v num">1,284.6<span style="font-size:13px;font-weight:400;color:#5B6675"> 吨</span></div><div class="d"><span class="up">↑ 6.4%</span> 环比上月</div></div>
+        <div class="kpi"><div class="k">按时完成率</div><div class="v num">96.8%</div><div class="d"><span class="up">↑ 2.1pt</span> 环比上月</div></div>
+        <div class="kpi"><div class="k">满溢点位</div><div class="v num">6<span style="font-size:13px;font-weight:400;color:#5B6675"> 处</span></div><div class="d"><span class="down">↓ 3 处</span> 环比上月</div></div>
+        <div class="kpi"><div class="k">车辆利用率</div><div class="v num">81.5%</div><div class="d"><span class="up">↑ 4.0pt</span> 环比上月</div></div>
+        <div class="kpi"><div class="k">投诉量</div><div class="v num">14<span style="font-size:13px;font-weight:400;color:#5B6675"> 件</span></div><div class="d"><span class="down">↓ 5 件</span> 环比上月</div></div>
+        <div class="kpi"><div class="k">异常未闭环</div><div class="v num" style="color:#B3261E">3<span style="font-size:13px;font-weight:400;color:#5B6675"> 条</span></div><div class="d">超 24 小时 1 条</div></div>
+      </div>
+      <div class="charts">
+        <div class="card">
+          <div class="card-h"><h2>清运量与任务趋势（近 14 天）</h2><span class="muted" style="margin-left:auto">吨 / 单</span></div>
+          <div class="card-b">
+            <svg class="lc" viewBox="0 0 520 140" preserveAspectRatio="none">
+              <g stroke="#EEF1F5" stroke-width="1"><line x1="0" y1="20" x2="520" y2="20"/><line x1="0" y1="55" x2="520" y2="55"/><line x1="0" y1="90" x2="520" y2="90"/><line x1="0" y1="125" x2="520" y2="125"/></g>
+              <polyline fill="none" stroke="#2F6B8A" stroke-width="2" points="0,96 40,88 80,92 120,74 160,80 200,62 240,58 280,66 320,50 360,54 400,42 440,46 480,34 520,38"/>
+              <polyline fill="none" stroke="#B26B00" stroke-width="2" stroke-dasharray="4 3" points="0,110 40,104 80,108 120,96 160,100 200,90 240,86 280,92 320,80 360,84 400,74 440,78 480,70 520,72"/>
+            </svg>
+            <div class="lg" style="margin-top:6px"><span style="margin-right:14px"><i style="background:#2F6B8A"></i>清运量(吨)</span><i style="background:#B26B00"></i>任务单数</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>任务状态分布</h2></div>
+          <div class="card-b">
+            <div class="donut"><div class="ring"></div>
+              <div class="lg">
+                <div><i style="background:#2E7D5B"></i>已完成 62%</div>
+                <div><i style="background:#2F6B8A"></i>清运中 16%</div>
+                <div><i style="background:#B26B00"></i>待派车 12%</div>
+                <div><i style="background:#B3261E"></i>异常 6%</div>
+                <div><i style="background:#7E8B9B"></i>已取消 4%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>垃圾类型构成</h2></div>
+          <div class="card-b">
+            <div class="hbar"><span class="nm">生活垃圾</span><span class="tr"><i style="width:82%"></i></span><span class="vl num">52.1%</span></div>
+            <div class="hbar"><span class="nm">建筑垃圾</span><span class="tr"><i style="width:44%;background:#3B627A"></i></span><span class="vl num">18.6%</span></div>
+            <div class="hbar"><span class="nm">大件垃圾</span><span class="tr"><i style="width:30%;background:#7E8B9B"></i></span><span class="vl num">12.4%</span></div>
+            <div class="hbar"><span class="nm">餐厨垃圾</span><span class="tr"><i style="width:24%;background:#2E7D5B"></i></span><span class="vl num">9.8%</span></div>
+            <div class="hbar"><span class="nm">园林绿化</span><span class="tr"><i style="width:16%;background:#B26B00"></i></span><span class="vl num">7.1%</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>区域任务排行</h2></div>
+          <div class="card-b">
+            <div class="hbar"><span class="nm">城南街道</span><span class="tr"><i style="width:88%"></i></span><span class="vl num">312</span></div>
+            <div class="hbar"><span class="nm">高新片区</span><span class="tr"><i style="width:70%"></i></span><span class="vl num">248</span></div>
+            <div class="hbar"><span class="nm">老城街道</span><span class="tr"><i style="width:58%"></i></span><span class="vl num">205</span></div>
+            <div class="hbar"><span class="nm">滨江片区</span><span class="tr"><i style="width:46%"></i></span><span class="vl num">163</span></div>
+            <div class="hbar"><span class="nm">城北乡镇</span><span class="tr"><i style="width:34%"></i></span><span class="vl num">121</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>准时率对比（线路）</h2></div>
+          <div class="card-b">
+            <div class="bars" style="height:120px">
+              <div class="bar" style="height:78%"><span>R-01</span></div>
+              <div class="bar" style="height:92%"><span>R-02</span></div>
+              <div class="bar" style="height:64%"><span>R-03</span></div>
+              <div class="bar" style="height:86%"><span>R-04</span></div>
+              <div class="bar" style="height:70%"><span>R-05</span></div>
+              <div class="bar" style="height:96%"><span>R-06</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h2>调度推荐结果分布</h2></div>
+          <div class="card-b">
+            <div class="hbar"><span class="nm">强烈推荐</span><span class="tr"><i style="width:36%;background:#2E7D5B"></i></span><span class="vl num">28%</span></div>
+            <div class="hbar"><span class="nm">建议派车</span><span class="tr"><i style="width:52%;background:#2F6B8A"></i></span><span class="vl num">41%</span></div>
+            <div class="hbar"><span class="nm">可延后</span><span class="tr"><i style="width:24%;background:#B26B00"></i></span><span class="vl num">22%</span></div>
+            <div class="hbar" style="margin:0"><span class="nm">不推荐</span><span class="tr"><i style="width:12%;background:#B3261E"></i></span><span class="vl num">9%</span></div>
+            <div class="lg" style="margin-top:10px;padding-top:8px;border-top:1px solid #EEF1F5">采纳率 78.4% · 人工调整率 21.6%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

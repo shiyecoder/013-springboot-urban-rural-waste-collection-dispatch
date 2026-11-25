@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>登录 · 城乡垃圾清运调度与台账管理系统</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+body{background:#EEF1F5}
+.login{display:grid;grid-template-columns:1.15fr .85fr;min-height:100vh}
+.art{background:linear-gradient(160deg,#1F2937 0%,#243645 46%,#2F6B8A 100%);color:#fff;padding:56px 64px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.art::after{content:"";position:absolute;right:-120px;bottom:-120px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.04)}
+.art h1{font-size:30px;line-height:44px;font-weight:600;margin-top:auto;letter-spacing:.5px}
+.art p{color:rgba(255,255,255,.62);font-size:14px;margin-top:14px;max-width:440px;line-height:24px}
+.art ul{list-style:none;margin-top:36px;display:flex;gap:32px}
+.art li{font-size:13px;color:rgba(255,255,255,.8)}
+.art li b{display:block;font-size:24px;font-weight:600;color:#fff;margin-bottom:2px}
+.brandline{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;letter-spacing:.5px}
+.brandline svg{width:26px;height:26px;fill:#fff}
+.panel{display:grid;place-items:center;background:#fff;padding:40px}
+.form{width:360px}
+.form h2{font-size:22px;font-weight:600}
+.form .sub{color:var(--text3);font-size:13px;margin-top:6px;margin-bottom:28px}
+.form .fld{margin-bottom:16px}
+.form .fld label{font-size:13px;color:var(--text2);margin-bottom:6px;display:block}
+.form input{width:100%;height:42px}
+.row{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text2);margin:4px 0 22px}
+.btn-login{width:100%;height:44px;justify-content:center;font-size:15px}
+.roles{margin-top:28px;border-top:1px solid var(--border);padding-top:16px}
+.roles .t{font-size:12px;color:var(--text3);margin-bottom:8px}
+.roles a{display:flex;justify-content:space-between;padding:7px 10px;border-radius:6px;font-size:13px;color:var(--text2)}
+.roles a:hover{background:#F5F7FA;color:var(--primary)}
+.err{color:var(--danger);font-size:12px;margin-top:-8px;margin-bottom:12px}
+</style></head><body>
+<div class="login">
+  <div class="art">
+    <div class="brandline"><svg><use href="icons.svg#i-truck"/></svg>环卫清运调度中心</div>
+    <h1>城乡垃圾清运<br>调度与台账管理系统</h1>
+    <p>收集点报量 · 周期计划 · 紧急插单 · 途中改派 · 称重交接 · 异常闭环，把每一条清运线路都留成可核查的台账。</p>
+    <ul>
+      <li><b>128</b>在管收集点</li>
+      <li><b>36</b>清运车辆</li>
+      <li><b>99.2%</b>按时完成率</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <form class="form" onsubmit="location.href='dashboard.html';return false">
+      <h2>账号登录</h2>
+      <div class="sub">请使用单位分配的账号登录，连续 5 次失败将锁定 10 分钟</div>
+      <div class="fld"><label>账号</label><input value="admin" autocomplete="username"></div>
+      <div class="fld"><label>密码</label><input type="password" value="admin123" autocomplete="current-password"></div>
+      <div class="err" style="display:none">账号或密码错误，您还可以尝试 4 次</div>
+      <div class="row"><label style="display:flex;gap:6px;align-items:center;font-size:13px"><input type="checkbox" style="width:14px;height:14px;margin:0" checked>记住账号</label><a href="#">忘记密码？</a></div>
+      <button class="btn btn-p btn-login" type="submit">登 录</button>
+      <div class="roles">
+        <div class="t">演示账号（点击直接进入）</div>
+        <a href="dashboard.html">运营管理员 admin / admin123<span>全部数据</span></a>
+        <a href="dispatch-console.html">调度员 dispatcher01 / admin123<span>调度范围</span></a>
+        <a href="point-list.html">收集点管理员 point01 / admin123<span>本点位</span></a>
+        <a href="driver-tasks.html">司机 driver01 / admin123<span>本人任务</span></a>
+      </div>
+    </form>
+  </div>
+</div>
+</body></html>

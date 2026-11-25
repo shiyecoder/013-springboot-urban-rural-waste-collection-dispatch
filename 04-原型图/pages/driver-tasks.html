@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>司机任务端</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+body{background:#DDE3EA;display:grid;place-items:center;min-height:100vh;padding:24px 0;font-size:14px}
+.phone{width:390px;height:844px;background:#F5F7FA;border-radius:26px;box-shadow:0 18px 50px rgba(27,36,48,.28);overflow:hidden;display:flex;flex-direction:column;position:relative;border:8px solid #1B2430}
+.ph-top{background:#2F6B8A;color:#fff;padding:14px 18px 16px}
+.ph-top .bar{display:flex;align-items:center;justify-content:space-between;font-size:12px;opacity:.85}
+.ph-top h3{font-size:17px;font-weight:600;margin-top:10px}
+.ph-top .sm{font-size:12px;opacity:.8;margin-top:4px}
+.body{flex:1;overflow:auto;padding:14px}
+.task{background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:14px;margin-bottom:12px}
+.task .r1{display:flex;align-items:center;gap:8px}
+.task .no{font-size:12px;color:#8A94A3;font-variant-numeric:tabular-nums}
+.task h4{font-size:15px;font-weight:600;margin-top:8px}
+.task .m{font-size:12px;color:#5B6675;margin-top:4px;line-height:20px}
+.task .foot{display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #EEF1F5}
+.task .foot .btn{flex:1;justify-content:center;height:38px}
+.cur{background:#EAF2F6;border-radius:8px;padding:12px;margin-bottom:12px;font-size:13px;color:#254E66}
+.tabbar{height:56px;background:#fff;border-top:1px solid #E3E8EF;display:flex;align-items:center;justify-content:space-around;font-size:11px;color:#8A94A3}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:64px;min-height:44px;justify-content:center}
+.tabbar a.on{color:#2F6B8A;font-weight:500}
+.tabbar svg{width:20px;height:20px;fill:currentColor}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.stat div{background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:10px;text-align:center}
+.stat b{display:block;font-size:18px;font-weight:600}
+.stat span{font-size:11px;color:#5B6675}
+.shot{display:flex;gap:6px;margin-top:10px}
+.shot img{width:72px;height:56px;object-fit:cover;border-radius:4px;border:1px solid #E3E8EF;background:#EEF1F5}
+.timeline .tl{padding-bottom:14px}
+.timeline .h{font-size:13px}
+.timeline .m{font-size:11px}
+</style></head><body>
+<div class="phone">
+  <div class="ph-top">
+    <div class="bar"><span>09:41</span><span>● ● ● 5G</span></div>
+    <h3>我的清运任务</h3>
+    <div class="sm">陈伟强 · 粤A·D8821 · R-02 城南环线</div>
+  </div>
+  <div class="body">
+    <div class="stat">
+      <div><b class="num" style="color:#B26B00">3</b><span>待执行</span></div>
+      <div><b class="num" style="color:#2F6B8A">1</b><span>进行中</span></div>
+      <div><b class="num" style="color:#2E7D5B">42</b><span>本月完成</span></div>
+    </div>
+    <div class="cur">当前正在执行 <b>QD20261031-0011</b>，下一站：滨江路建材市场站（约 4.2 km）</div>
+
+    <div class="task">
+      <div class="r1"><span class="tag t-run">清运中</span><span class="no">QD20261031-0011</span></div>
+      <h4>滨江路建材市场站</h4>
+      <div class="m">10:30 计划到场 · 建筑垃圾 · 预估 9.8 吨<br>滨江片区 · 联系人 陈志远 136****3345</div>
+      <div class="shot"><img src="../assets/site1.png" alt=""><img src="../assets/site2.png" alt=""></div>
+      <div class="foot"><button class="btn btn-s">到站打卡</button><button class="btn btn-p">录入重量</button></div>
+    </div>
+
+    <div class="task">
+      <div class="r1"><span class="tag t-wait">已接单</span><span class="no">QD20261031-0014</span></div>
+      <h4>高新科技园 B 区站</h4>
+      <div class="m">11:40 计划到场 · 餐厨垃圾 · 预估 4.6 吨<br>高新片区 · 联系人 刘敏 135****7723</div>
+      <div class="foot"><button class="btn btn-s">导航</button><button class="btn btn-p">开始执行</button></div>
+    </div>
+
+    <div class="task">
+      <div class="r1"><span class="tag t-wait">已接单</span><span class="no">QD20261031-0015</span></div>
+      <h4>锦绣花园小区北门站</h4>
+      <div class="m">12:20 计划到场 · 生活垃圾 · 预估 5.4 吨<br>城南街道 · 联系人 王秀兰 139****6602</div>
+      <div class="foot"><button class="btn btn-d">拒接</button><button class="btn btn-p">开始执行</button></div>
+    </div>
+
+    <div class="task">
+      <div class="r1"><span class="tag t-ok">已完成</span><span class="no">QD20261031-0009</span></div>
+      <h4>城南农贸市场东门站</h4>
+      <div class="m">实际 7.4 吨 · 08:12 到场 / 08:36 离场</div>
+      <div class="timeline" style="margin-top:12px;padding-left:2px">
+        <div class="tl ok"><div class="h">完成清运</div><div class="m">08:36 · 陈伟强</div></div>
+        <div class="tl"><div class="h">录入重量 7.4 吨</div><div class="m">08:30 · 现场图片 2 张</div></div>
+        <div class="tl"><div class="h">到站打卡</div><div class="m">08:12 · 定位偏差 38m</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <a class="on"><svg><use href="../icons.svg#i-dispatch"/></svg>任务</a>
+    <a><svg><use href="../icons.svg#i-weigh"/></svg>称重</a>
+    <a><svg><use href="../icons.svg#i-alert"/></svg>上报</a>
+    <a><svg><use href="../icons.svg#i-user"/></svg>我的</a>
+  </div>
+</div>
+</body></html>

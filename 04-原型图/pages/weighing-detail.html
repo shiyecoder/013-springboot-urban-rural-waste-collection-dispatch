@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>清运凭证详情 · 容量与时效联合调度</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+.hd{background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px 24px;margin-bottom:16px;position:sticky;top:0;z-index:5}
+.hd .l1{display:flex;align-items:center;gap:12px}
+.hd .l1 h1{font-size:18px;font-weight:600}
+.hd .l2{display:flex;gap:28px;margin-top:12px;font-size:13px;color:var(--text2);flex-wrap:wrap}
+.hd .l2 b{color:var(--text);font-weight:500}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.score-box{display:flex;align-items:center;gap:20px;padding:16px;background:#F7F9FC;border-radius:6px;margin-bottom:16px}
+.score-box .big{font-size:40px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.score-box .txt{font-size:13px;color:var(--text2);line-height:22px}
+table.mini th{height:36px;font-size:12px}
+table.mini td{height:38px;font-size:13px}
+.wt{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wt .im{border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#EEF1F5}
+.wt .im img{width:100%;height:150px;object-fit:cover;display:block}
+.wt .im span{display:block;padding:8px 10px;font-size:12px;color:var(--text2);background:#fff}
+</style></head><body>
+<div data-nav="weigh" data-title="调度台账 / 清运凭证详情" data-user="李振华" data-role="调度员"></div>
+<div id="page">
+  <div class="hd">
+    <div class="l1"><h1>QD20261031-0011</h1><span class="tag t-run">待交接</span><span class="muted">清运任务</span>
+      <div style="margin-left:auto;display:flex;gap:8px"><button class="btn btn-s btn-sm"><svg><use href="../icons.svg#i-export"/></svg>打印凭证</button><button class="btn btn-p btn-sm">确认交接</button></div>
+    </div>
+    <div class="l2">
+      <span>责任人 <b>陈伟强</b></span><span>车辆 <b>粤A·D8821</b></span><span>线路 <b>R-02 城南环线</b></span>
+      <span>创建时间 <b class="num">2026-10-31 07:41:20</b></span><span>最近更新 <b class="num">2026-10-31 15:22:08</b></span>
+    </div>
+  </div>
+
+  <div class="two">
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>任务基础信息</h2></div>
+        <div class="card-b">
+          <dl class="dl">
+            <dt>垃圾类型</dt><dd>建筑垃圾</dd>
+            <dt>计划时间</dt><dd class="num">2026-10-31 10:30:00</dd>
+            <dt>处置场</dt><dd>城南综合处置场</dd>
+            <dt>预估重量</dt><dd class="num">9.8 吨</dd>
+            <dt>实际重量</dt><dd class="num">10.2 吨</dd>
+            <dt>调度员</dt><dd>李振华</dd>
+            <dt>派单方式</dt><dd>系统推荐（采纳）</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>执行明细（3 个站点）</h2></div>
+        <table class="mini">
+          <thead><tr><th class="nowrap">序</th><th>收集点</th><th class="nowrap">到场</th><th class="nowrap">离场</th><th class="r">实际重量</th><th class="nowrap">状态</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>滨江路建材市场站</td><td class="num">10:32</td><td class="num">11:05</td><td class="r num">4.4 吨</td><td><span class="tag t-ok">已完成</span></td></tr>
+            <tr><td class="num">2</td><td>滨江花园西区站</td><td class="num">11:28</td><td class="num">11:56</td><td class="r num">3.6 吨</td><td><span class="tag t-ok">已完成</span></td></tr>
+            <tr><td class="num">3</td><td>老城文化广场站</td><td class="num">12:34</td><td class="num">13:02</td><td class="r num">2.2 吨</td><td><span class="tag t-err">漏站补录</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>现场与称重图片</h2><span class="muted" style="margin-left:auto">全部为本地文件，断网可显示</span></div>
+        <div class="card-b">
+          <div class="wt">
+            <div class="im"><img src="../assets/site1.png" alt=""><span>现场图片 · 滨江路建材市场站 10:38</span></div>
+            <div class="im"><img src="../assets/weigh1.png" alt=""><span>称重单 · 进场 10.2 吨</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>容量与时效联合调度 · 计算留痕</h2><span class="tag t-ok" style="margin-left:auto">规则 v3</span></div>
+        <div class="card-b">
+          <div class="score-box">
+            <div class="big" style="color:#B3261E">92.4</div>
+            <div class="txt"><b style="font-size:14px;color:#1B2430">P1 · 立即派车</b><br>满分 100，阈值 85 / 65 / 45<br>计算时间 2026-10-31 07:42:10</div>
+          </div>
+          <table class="mini">
+            <thead><tr><th>输入因素</th><th>原始值</th><th>权重</th><th class="r">得分</th></tr></thead>
+            <tbody>
+              <tr><td>满载度</td><td class="num">92%</td><td class="num">26%</td><td class="r num">24.0</td></tr>
+              <tr><td>滞留时长</td><td class="num">58 小时</td><td class="num">24%</td><td class="r num">21.6</td></tr>
+              <tr><td>投诉次数</td><td class="num">3 次</td><td class="num">16%</td><td class="r num">15.0</td></tr>
+              <tr><td>车辆剩余容量</td><td class="num">6.8 吨</td><td class="num">18%</td><td class="r num">18.0</td></tr>
+              <tr><td>点位距离</td><td class="num">4.2 km</td><td class="num">10%</td><td class="r num">9.4</td></tr>
+              <tr><td>垃圾类型匹配</td><td class="num">完全匹配</td><td class="num">6%</td><td class="r num">4.4</td></tr>
+            </tbody>
+          </table>
+          <div class="hint" style="margin-top:14px">
+            <b>主要影响因素</b>：满载度 92%（超阈值 85%）、滞留 58 小时、投诉 3 次。<br>
+            <b>未满足条件</b>：粤A·D8821 司机 09:00 存在重叠任务，已自动跳过该车。<br>
+            <b>可改进项</b>：老城文化广场站距上一站 6.8 km，建议调整线路顺序可减少空驶约 3.2 km。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>人工调整记录</h2></div>
+        <div class="card-b">
+          <div class="timeline">
+            <div class="tl"><div class="h">调度员采纳推荐结果</div><div class="m">李振华 · 2026-10-31 07:43:02<br>原因：满载度已超阈值，同意系统建议</div></div>
+            <div class="tl"><div class="h">人工调整车辆</div><div class="m">李振华 · 2026-10-31 09:15:40<br>原因：原车年检到期临时停用，改派粤A·D8836（原始得分未覆盖）</div></div>
+            <div class="tl ok"><div class="h">重量复核通过</div><div class="m">王海燕 · 2026-10-31 15:22:08<br>净重偏差 4.1%，低于 5% 阈值</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h2>处置交接</h2></div>
+        <div class="card-b">
+          <dl class="dl">
+            <dt>处置场</dt><dd>城南综合处置场</dd>
+            <dt>进场重量</dt><dd class="num">10.20 吨</dd>
+            <dt>出场重量</dt><dd class="num">3.80 吨</dd>
+            <dt>净重</dt><dd class="num">6.40 吨</dd>
+            <dt>处置方式</dt><dd>焚烧发电</dd>
+            <dt>复核状态</dt><dd><span class="tag t-ok">复核通过</span></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/nav.js"></script>
+</body></html>

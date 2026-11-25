@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>临时报满上报</title>
+<link rel="stylesheet" href="../assets/app.css">
+<style>
+.up{width:132px;height:132px;border:1px dashed #C9D2DD;border-radius:8px;display:grid;place-items:center;background:#FAFBFD;color:var(--text3);font-size:12px;text-align:center;gap:4px;cursor:pointer}
+.up svg{width:24px;height:24px;fill:#8A94A3}
+.upbox{display:flex;gap:12px;align-items:flex-start}
+.prev{width:132px;height:132px;border-radius:8px;object-fit:cover;border:1px solid var(--border)}
+.form1{max-width:640px}
+.frow{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:start;margin-bottom:16px}
+.frow>label{font-size:14px;color:var(--text2);padding-top:8px;text-align:right}
+.frow input,.frow select,.frow textarea{width:100%;max-width:420px;height:36px;border:1px solid #D6DDE6;border-radius:6px;padding:0 12px;font-family:inherit;font-size:14px;background:#fff}
+.frow textarea{height:76px;padding:8px 12px;line-height:22px}
+.frow .tip{font-size:12px;color:var(--text3);margin-top:6px}
+.req::before{content:"*";color:#B3261E;margin-right:2px}
+.queue div{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #EEF1F5;font-size:13px}
+.queue div:last-child{border:none}
+.queue .rank{width:20px;height:20px;border-radius:4px;background:#EEF1F5;display:grid;place-items:center;font-size:11px;color:var(--text2)}
+.queue .rank.hi{background:#FBEDEC;color:#B3261E}
+</style></head><body>
+<div data-nav="overflow" data-title="调度台账 / 临时报满" data-user="王秀兰" data-role="收集点管理员"></div>
+<div id="page">
+  <div class="grid2" style="grid-template-columns:1.25fr 1fr;align-items:start">
+    <div class="card">
+      <div class="card-h"><h2>上报点位满溢</h2><span class="muted" style="margin-left:auto">编码 CP-2026-0032</span></div>
+      <div class="card-b">
+        <form class="form1" onsubmit="return false">
+          <div class="frow"><label class="req">收集点</label><div><input value="锦绣花园小区北门站" readonly style="background:#F5F7FA;color:#5B6675"><div class="tip">系统按登录账号所属点位自动带出，不可修改</div></div></div>
+          <div class="frow"><label class="req">满溢程度</label><div><select><option>请选择</option><option>轻微（80% 左右）</option><option selected>明显（已溢出桶口）</option><option>严重（垃圾落地堆积）</option></select><div class="tip">满溢程度将参与紧急度排序</div></div></div>
+          <div class="frow"><label class="req">预估量（吨）</label><div><input type="number" value="5.2" step="0.1"><div class="tip">不得超过该点位容量 6.0 吨</div></div></div>
+          <div class="frow"><label>现场图片</label><div><div class="upbox">
+            <img class="prev" src="../assets/overflow1.png" alt="">
+            <div class="up"><svg><use href="../icons.svg#i-camera"/></svg><span>点击或拖拽上传<br>JPG/PNG ≤5MB</span></div>
+          </div><div class="tip">必填至少 1 张现场照片，不允许填写外链地址</div></div></div>
+          <div class="frow"><label>补充说明</label><div><textarea>桶体已满，垃圾溢出到人行道，居民反映异味明显，希望今天上午安排清运。</textarea></div></div>
+          <div class="frow"><label></label><div style="display:flex;gap:8px"><button class="btn btn-p">提交上报</button><button class="btn btn-s">保存草稿</button><button class="btn btn-s">取消</button></div></div>
+        </form>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-h"><h2>紧急度排序（同区域）</h2></div>
+        <div class="card-b queue">
+          <div><span class="rank hi">1</span><div style="flex:1"><b>城南农贸市场东门站</b><br><span class="muted">严重 · 92% 满载 · 滞留 58h</span></div><span class="tag t-err">P1</span></div>
+          <div><span class="rank hi">2</span><div style="flex:1"><b>锦绣花园小区北门站</b><br><span class="muted">明显 · 78% 满载 · 滞留 32h</span></div><span class="tag t-wait">P2</span></div>
+          <div><span class="rank">3</span><div style="flex:1"><b>高新科技园 B 区站</b><br><span class="muted">明显 · 88% 满载 · 滞留 21h</span></div><span class="tag t-wait">P2</span></div>
+          <div><span class="rank">4</span><div style="flex:1"><b>滨江花园西区站</b><br><span class="muted">轻微 · 71% 满载 · 滞留 12h</span></div><span class="tag t-run">P3</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h2>我的上报记录</h2></div>
+        <table>
+          <thead><tr><th class="nowrap">上报编号</th><th class="nowrap">上报时间</th><th class="nowrap">状态</th></tr></thead>
+          <tbody>
+            <tr><td class="num nowrap">OF20261031-006</td><td class="num nowrap">10-31 08:42</td><td><span class="tag t-wait">待派单</span></td></tr>
+            <tr><td class="num nowrap">OF20261030-004</td><td class="num nowrap">10-30 17:20</td><td><span class="tag t-ok">已清运</span></td></tr>
+            <tr><td class="num nowrap">OF20261027-002</td><td class="num nowrap">10-27 09:05</td><td><span class="tag t-ok">已清运</span></td></tr>
+            <tr><td class="num nowrap">OF20261021-001</td><td class="num nowrap">10-21 15:33</td><td><span class="tag t-off">已取消</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/nav.js"></script>
+</body></html>
